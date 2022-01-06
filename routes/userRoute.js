@@ -8,7 +8,7 @@ userRoute.post('/register', async (req, res) => {
         if(userExists){
             throw new Error('User Exist')
         }
-        const user = await User.create(req.body)
+        const user = await User.create({name, email, password})
         user.save()
         res.json(user)
     
