@@ -9,7 +9,7 @@ userRoute.post('/register', async (req, res) => {
         res.json(user)
     }
     catch (error) {
-        throw new Error("An error Occured")
+        res.send("An error Occured")
         console.log(error)
     }
 })
