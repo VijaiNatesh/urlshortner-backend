@@ -2,7 +2,6 @@ const {User} = require('../models/User')
 const Token = require('../models/Token')
 const sendEmail = require('../utils/sendEmail')
 const crypto = require('crypto')
-const Joi = require('joi')
 const express = require('express')
 const passwordResetRoute = express.Router()
 
