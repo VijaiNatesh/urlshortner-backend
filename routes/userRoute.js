@@ -3,15 +3,15 @@ const express = require('express')
 const userRoute = express.Router()
 
 userRoute.post('/register', async (req, res) => {
-    try {
+        const {name, email, password} = req.body;
+        const userExists = await User.findOne({email : email});
+        if(userExists){
+            throw new Error('User Exist')
+        }
         const user = await User.create(req.body)
         user.save()
         res.json(user)
-    }
-    catch (error) {
-        throw new Error("An error Occured")
-        console.log(error)
-    }
+    
 })
 
 userRoute.post('/login', async (req, res) => {
