@@ -20,7 +20,7 @@ userRoute.post('/login', async (req, res) => {
     const { email, password } = req.body
     const user = await User.findOne({ email: email })
     if (user && (await user.isPasswordMatch(password))) {
-        res.send("Successfully Logged In")
+        res.json(user)
     }
     else {
         res.send('Invalid Login Credentials')
