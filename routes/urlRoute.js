@@ -31,16 +31,16 @@ urlRoute.post('/', async (req, res) => {
                 });
 
                 await url.save();
-
                 res.json(url);
+                res.send("Url Shortened")
             }
         } catch (err) {
             console.error(err.message);
-            throw new Error('Server Error');
+           res.send('Server Error');
         }
 
     } else {
-        throw new Error('Invalid Long Url');
+        res.send('Invalid Long Url');
     }
 })
 
