@@ -19,9 +19,9 @@ passwordResetRoute.post('/', async (req, res) => {
         })
         token.save()       
     }
-    const link = `${process.env.BASE_URL}/password-reset/${user._id}/${token.token}`;
+    const link = `${process.env.BASE_URL}password-reset/${user._id}/${token.token}`;
         await sendEmail(user.email, "Password reset", link);
-     res.send(link)   
+     res.send("Password Reset Link sent to your registered Mail")   
     }
     catch(error){
         console.log(error)
