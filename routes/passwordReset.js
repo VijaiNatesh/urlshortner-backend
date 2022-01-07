@@ -1,4 +1,4 @@
-const {User} = require('../models/User')
+const User = require('../models/User')
 const Token = require('../models/Token')
 const sendEmail = require('../utils/sendEmail')
 const crypto = require('crypto')
@@ -21,7 +21,7 @@ passwordResetRoute.post('/', async (req, res) => {
     }
     const link = `${process.env.BASE_URL}/password-reset/${user._id}/${token.token}`;
         await sendEmail(user.email, "Password reset", link);
-     res.send("Password Reset Link is sent to the registered Mail")   
+     res.send(link)   
     }
     catch(error){
         console.log(error)
