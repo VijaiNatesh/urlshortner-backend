@@ -3,8 +3,8 @@ const express = require('express')
 const userRoute = express.Router()
 
 userRoute.post('/register', async (req, res) => {
-        const {name, email, password} = req.body;       
-        const user = await User.create({name, email, password})
+       
+        const user = await User.create(req.body)
         user.save()
         res.json(user)
     
