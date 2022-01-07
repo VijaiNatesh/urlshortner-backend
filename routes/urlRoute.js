@@ -43,6 +43,11 @@ urlRoute.post('/', async (req, res) => {
     }
 })
 
+urlRoute.get('/urllist', async(req, res) => {
+    const url = await Url.find()
+    res.json(url)
+})
+
 urlRoute.get('/:code', async (req, res) => {
     try {
       const url = await Url.findOne({ urlCode: req.params.code });
