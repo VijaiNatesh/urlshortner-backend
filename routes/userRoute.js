@@ -10,7 +10,8 @@ userRoute.post('/register', async (req, res) => {
         }
         const user = await User.create({name, email, password})
         user.save()
-        res.json(user)
+        res.send("User Registered Successfully")
+
     
 })
 
