@@ -3,8 +3,8 @@ const express = require('express')
 const userRoute = express.Router()
 
 userRoute.post('/register', async (req, res) => {
-       
-        const user = await User.create(req.body)
+        const {name, email, password} = req.body;       
+        const user = await User.create({name, email, password})
         user.save()
         res.json(user)
     
@@ -24,7 +24,7 @@ userRoute.post('/login', async (req, res) => {
 
 userRoute.get('/details', async(req, res) => {
     const user = await User.find()
-    res.json(user)
+    res.json(user.name)
 })
 
 module.exports = userRoute
