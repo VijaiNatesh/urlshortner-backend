@@ -30,8 +30,7 @@ urlRoute.post('/', async (req, res) => {
                     date: new Date(),
                 });
 
-                await url.save();
-                res.json(url);
+                await url.save();               
                 res.send("Url Shortened")
             }
         } catch (err) {
