@@ -24,7 +24,7 @@ userRoute.post('/login', async (req, res) => {
 
 userRoute.get('/details', async(req, res) => {
     const user = await User.find()
-    res.send(user.name)
+    res.send(user)
 })
 
 module.exports = userRoute
